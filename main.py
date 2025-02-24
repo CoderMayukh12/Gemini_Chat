@@ -42,7 +42,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
    allow_origins=[
-    "https://brain-bot-8hky.vercel.app",
+    "https://gemini-chat-black-delta.vercel.app",
     "https://4385f656-a93f-443d-9dd5-127f60d8e5fa-00-2avmmtpp9s0l7.janeway.replit.dev",
     "http://localhost",  # Add these
     "http://localhost:3000",
