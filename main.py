@@ -4,11 +4,11 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-# Load environment variables from .env (for local testing)
+# Load environment variables (for local testing; Heroku uses Config Vars)
 load_dotenv()
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
-# Configure generation settings
+# Generation settings
 generation_config = {
     "temperature": 0.15,
     "top_p": 0.95,
@@ -46,7 +46,7 @@ async def chat_endpoint(request: ChatRequest):
     except Exception as e:
         return {"error": str(e)}
 
-# For local testing, you can run: uvicorn main:app --reload
+# For local testing: run with uvicorn main:app --reload
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
